@@ -7,20 +7,23 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to your existing stylesheet -->
     <style>
         body {
-            font-family: 'YourThemeFont', sans-serif;
-            background-color: #f0f5f0; /* Maintain platform's background color */
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f5f0; /* Platform's background color */
             color: #333;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
 
         /* Navigation Bar */
         nav {
+            background-color: #2a7b2e;
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-left: 40px;
-            padding-right: 60px;
+            padding: 15px 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
@@ -30,28 +33,31 @@
         }
 
         .logo img {
-            width:150px;
+            width: 150px;
+            margin-right: 10px;
         }
 
         .nav-links {
             list-style-type: none;
             display: flex;
-            gap: 80px;
+            gap: 40px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
-            font-size: 20px;
+            color: white;
+            font-size: 18px;
             font-weight: bold;
+            transition: color 0.3s;
         }
-        .nav-links li a:hover{
-            color: #27ae60;
+
+        .nav-links a:hover {
+            color: #A5D6A7;
         }
 
         .buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
         }
 
         .login-btn,
@@ -59,15 +65,15 @@
             padding: 10px 20px;
             border: none;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             border-radius: 25px;
-            transition: background-color 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out, color 0.3s;
         }
 
         .login-btn {
-            background-color: #fff;
-            color: #2E7D32;
-            border: 2px solid #2E7D32;
+            background-color: transparent;
+            color: #A5D6A7;
+            border: 2px solid #A5D6A7;
         }
 
         .signup-btn {
@@ -76,8 +82,8 @@
         }
 
         .login-btn:hover, .signup-btn:hover {
-            background-color: #4CAF50;
-            color: white;
+            background-color: white;
+            color: #2E7D32;
         }
 
         .contact-container {
@@ -85,58 +91,72 @@
             margin: 0 auto;
             padding: 2rem;
             display: flex;
-            justify-content: center; /* Center the content horizontally */
-            align-items: center; /* Center the content vertically */
-            height: calc(100vh - 60px); /* Adjust height for the page, subtracting navigation height */
-            flex-direction: column; /* Keep content in column format */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 100px);
         }
 
         .contact-header {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .contact-header h1 {
-            color: #2a7b2e; /* Theme primary color */
-            font-size: 2.5rem;
+            color: #2a7b2e;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
         }
 
-        .contact-info, .contact-form {
-            margin-bottom: 2rem;
+        .contact-header p {
+            font-size: 1.2rem;
+            color: #555;
         }
 
         .contact-info {
             text-align: center;
+            margin-bottom: 2rem;
+            background-color: #c8e6c9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .contact-info h2 {
             font-size: 1.8rem;
             color: #2a7b2e;
+            margin-bottom: 0.5rem;
         }
 
         .contact-info p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
         }
 
         .contact-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: #f8f8f8;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
         }
 
         .contact-form input, .contact-form textarea {
             width: 100%;
-            max-width: 600px;
-            padding: 1rem;
+            padding: 12px;
             margin-bottom: 1rem;
-            border: 2px solid #c8e6c9;
+            border: 1px solid #c8e6c9;
             border-radius: 5px;
+            font-size: 1rem;
         }
 
         .contact-form input[type="submit"] {
             background-color: #2a7b2e;
             color: white;
+            border: none;
             cursor: pointer;
+            padding: 12px;
             transition: background-color 0.3s;
         }
 
@@ -150,6 +170,35 @@
             background-color: #2a7b2e;
             color: white;
             margin-top: 2rem;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                width: 90%;
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -188,11 +237,11 @@
 
     <div class="contact-form">
        <form action="/contact" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <input type="submit" value="Send Message">
-</form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message">
+        </form>
     </div>
 </div>
 
