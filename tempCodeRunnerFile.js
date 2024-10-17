@@ -1,1 +1,1 @@
- 
+import User from './database/models/signup.js';

@@ -145,23 +145,27 @@ app.post('/signup', async (req, res) => {
 
 
 
-app.post('/login',async(req,resp) => {
-    const user_pass= req.body.password;
-    const userr=await User.findOne({email:req.body.email});
-    if(userr){
-        if(userr.password===user_pass){
-            resp.render('uploads')
-    } 
-    else{
-        resp.render('login',{errorMessage:'authentication failed!incorrect password'});
+app.post('/login', async (req, resp) => {
+    try {
+        const user_pass = req.body.password;
+        const userr = await User.findOne({ email: req.body.email });
+
+        if (userr) {
+            if (userr.password === user_pass) {
+                resp.render('uploads');
+            } else {
+                resp.render('login', { errorMessage: 'Authentication failed! Incorrect password' });
+            }
+        } else {
+            resp.render('login', { errorMessage: 'Authentication failed! Email not found' });
+        }
+    } catch (error) {
+        console.error(error);
+        resp.render('login', { errorMessage: 'An error occurred. Please try again later.' });
     }
-}
-
-else{
-    resp.render('login',{errorMessage:'authentication failed!email not found'});
-}
-
 });
+
+
 
 app.post('/contact', async (req, res) => {
     try {
