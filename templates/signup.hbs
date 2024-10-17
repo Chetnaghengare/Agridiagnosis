@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Agri-Diagnosis</title>
+
+    <!-- Link the sign.css using Express static path -->
+    <link rel="stylesheet" href="/signup.css">
+</head>
+
+<body>
+    <div class="background-container">
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="logo">
+                <!-- Dynamically link the logo image using Express static path -->
+                <img src="/MP_images/logo.png" alt="AgriDiagnosis Logo">
+                <h1>Agri-Diagnosis</h1>
+            </div>
+            <ul class="nav-links">
+                <!-- Use href to link to Express routes -->
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                {{!-- <li><a href="/">Services</a></li> --}}
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="buttons">
+                <!-- Wrap the buttons inside anchor tags to link to the login and signup routes -->
+                <a href="/login">
+                    <button class="login-btn">Log In</button>
+                </a>
+                <a href="/signup">
+                    <button class="signup-btn">Sign Up</button>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Sign-Up Form -->
+        <div class="signup-container">
+            <h2>Sign Up to Agri-Diagnosis</h2>
+            <form class="signup-form" action="/signup" method="POST">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+                <div class="input-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobileNumber" placeholder="Enter your mobile number" required>
+                </div>
+                <div class="input-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password"
+                        placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+
+
+            <div class="additional-links">
+                <p>Already have an account?
+                    <!-- Adjust the link for logging in -->
+                    <a href="/login">Log In here</a>
+                </p>
+                <p><a href="#">Forgot password?</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

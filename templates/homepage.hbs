@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriDiagnosis</title>
+    
+    <!-- Link the CSS file from the static folder -->
+    <link rel="stylesheet" type="text/css" href="/homepage.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <!-- Dynamically reference the image using the correct path -->
+                <img src="/MP_images/logo.png" alt="AgriDiagnosis Logo">
+                <h1>Agri-Diagnosis</h1>
+            </div>
+            <ul class="nav-links">
+                <!-- Set the Home link to point to the homepage route -->
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                {{!-- <li><a href="/">Services</a></li> --}}
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="buttons">
+                <!-- Wrap the buttons inside anchor tags to link to the login and signup routes -->
+                <a href="/login">
+                    <button class="login-btn">Log In</button>
+                </a>
+                <a href="/signup">
+                    <button class="signup-btn">Sign Up</button>
+                </a>
+            </div>
+            
+        </nav>
+        <div class="hero-section">
+            <h2>Empowering <span>Farmers</span>,<br> Nurturing India !</h2>
+            <p>We offer instant crop disease detection,<br>tailored solutions, and expert guidance to help farmers<br>protect their crops and make smarter decisions.</p>
+            <div class="cta-buttons">
+                <!-- Wrap buttons in anchor tags to link to the respective routes -->
+                <a href="/login">
+                    <button class="cta-btn get-started">Get Started</button>
+                </a>
+                <a href="/about">
+                    <button class="cta-btn explore">Explore</button>
+                </a>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

@@ -1,0 +1,278 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;  
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: rgba(39, 174, 96, 0.2);
+  border-radius: 50%;
+  z-index: -1;
+  animation: floating 10s ease-in-out infinite;
+  font-family: 'Arial', sans-serif;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  right: -150px;
+  width: 300px;
+  height: 300px;
+  background: rgba(33, 150, 243, 0.2);
+  border-radius: 50%;
+  z-index: -1;
+  animation: floating 12s ease-in-out infinite;
+  font-family: 'Arial', sans-serif;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 60px;
+  /* background-color: #f0f4f9; */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: large;
+}
+
+.logo img {
+  width: 150px;
+  transition: transform 0.3s;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 80px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #27ae60;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.login-btn {
+  background-color: #fff;
+  color: #2E7D32;
+  border: 2px solid #2E7D32;
+}
+
+.signup-btn {
+  background-color: #A5D6A7;
+  color: #2E7D32;
+}
+
+.login-btn:hover, .signup-btn:hover {
+  background-color: #4CAF50;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+
+.name h1{
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 36px;
+  text-transform: uppercase;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.heading{
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 36px;
+  text-transform: uppercase;
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.image-section {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.image-card {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 45%;
+  transition: transform 0.3s;
+}
+
+.image-card:hover {
+  transform: scale(1.05);
+}
+
+.image-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.disease-info {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  line-height: 1.8; /* Slightly increased for better readability */
+  text-align: left;
+  font-size: 18px; /* Increased font size */
+}
+
+.disease-info h2 {
+  color: #333;
+  font-size: 30px; /* Increased size for heading */
+}
+
+.disease-info h3 {
+  color: #333;
+  font-size: 25px; /* Increased size for subheading */
+}
+
+.disease-info p {
+  color: #555;
+  margin-bottom: 15px;
+  font-size: 20px; /* Ensure paragraphs also follow the font size */
+}
+
+.gif-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.gif-container img {
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Interactive Slogans */
+.slogans {
+  margin: 50px 0;
+}
+
+.slogans h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.slogan-text {
+  font-size: 24px;
+  color: #27ae60;
+  font-weight: bold;
+  animation: fadeSlogans 5s infinite;
+}
+
+@keyframes fadeSlogans {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Upload Again Button */
+.button-container {
+  margin-top: 40px;
+}
+
+.upload-again-btn {
+  padding: 12px 30px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #27ae60;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.upload-again-btn:hover {
+  background-color: #219150;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .image-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-card {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .gif-container img {
+    width: 90%;
+  }
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Agridiagnosis</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your existing stylesheet -->
+    <style>
+        body {
+            font-family: 'YourThemeFont', sans-serif;
+            background-color: #f0f5f0; /* Maintain platform's background color */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 40px;
+            padding-right: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: large;
+        }
+
+        .logo img {
+            width:150px;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+            gap: 80px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .nav-links li a:hover{
+            color: #27ae60;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .login-btn,
+        .signup-btn {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .login-btn {
+            background-color: #fff;
+            color: #2E7D32;
+            border: 2px solid #2E7D32;
+        }
+
+        .signup-btn {
+            background-color: #A5D6A7;
+            color: #2E7D32;
+        }
+
+        .login-btn:hover, .signup-btn:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */
+            height: calc(100vh - 60px); /* Adjust height for the page, subtracting navigation height */
+            flex-direction: column; /* Keep content in column format */
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-header h1 {
+            color: #2a7b2e; /* Theme primary color */
+            font-size: 2.5rem;
+        }
+
+        .contact-info, .contact-form {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-info h2 {
+            font-size: 1.8rem;
+            color: #2a7b2e;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            max-width: 600px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #c8e6c9;
+            border-radius: 5px;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #2a7b2e;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #256d28;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: #2a7b2e;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <div class="logo">
+        <img src="MP_images/logo.png" alt="AgriDiagnosis Logo">
+        <h1>Agri-Diagnosis</h1>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+    <div class="buttons">
+        <button class="login-btn">Log In</button>
+        <button class="signup-btn">Sign Up</button>
+    </div>
+</nav>
+
+<!-- Contact Us Section -->
+<div class="contact-container">
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>We're here to help! Reach out to us with any inquiries or support.</p>
+    </div>
+
+    <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>Email: support@agridignosis.com</p>
+        <p>Phone: +123 456 7890</p>
+        <p>Address: 123 Green Street, Agriculture City</p>
+    </div>
+
+    <div class="contact-form">
+       <form action="/submit_contact" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <input type="submit" value="Send Message">
+</form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Agridiagnosis. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
