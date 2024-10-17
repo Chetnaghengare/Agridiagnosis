@@ -12,7 +12,6 @@ Agridiagnosis is a web-based application designed to assist farmers in diagnosin
 - **Backend**: Node.js, Express
 - **Database**: MongoDB
 - **Machine Learning**: TensorFlow, Python (Flask)
-- **Web Scraping**: Puppeteer
 
 ## Installation
 To run the project locally, follow these steps:
