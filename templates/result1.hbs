@@ -16,7 +16,6 @@
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
-            
             <li><a href="/contact">Contact</a></li>
         </ul>
         <div class="buttons">
@@ -24,43 +23,37 @@
             <button class="signup-btn">Sign Up</button>
         </div>
     </nav>
-  
 
     <div class="container">
         <h1>Your Result is Here!</h1>
 
-        {{!-- <div class="image-section">
-            <div class="image-card">
-                <h2>Uploaded Image</h2>
-                <img src="uploaded.jpg" alt="Uploaded Image">
-            </div>
-            <div class="image-card">
-                <h2>Defective Area</h2>
-                <img src="defective.jpg" alt="Defective Area">
-            </div>
-        </div> --}}
-
         <!-- Disease Information -->
         <div class="disease-info">
-            {{!-- <p>Your uploaded image has been analyzed, and our AI model has detected the following disease:</p> --}}
-           <p><strong>Predicted Disease:</strong> {{ prediction }}</p>
+            <p><strong>Predicted Disease:</strong> {{ prediction }}</p>
             <p><strong>Description:</strong></p>
-        <ul>
-            {{#each description}}
-                <li>{{ this }}</li> <!-- Display each item as a bullet point -->
-            {{/each}}
-        </ul>
+            <ul>
+                {{#each description}}
+                    <li>{{ this }}</li> <!-- Display each item as a bullet point -->
+                {{/each}}
+            </ul>
 
-        <p><strong>Treatment:</strong></p>
-        <ul>
-            {{#each treatment}}
-                <li>{{ this }}</li> <!-- Display each item as a bullet point -->
-            {{/each}}
-        </ul>
+            <p><strong>Treatment:</strong></p>
+            <ul>
+                {{#each treatment}}
+                    <li>{{ this }}</li> <!-- Display each item as a bullet point -->
+                {{/each}}
+            </ul>
 
-       
+            <p><strong>Pesticides:</strong></p>
+       <ul>
+           {{#each pesticides}}
+        <li>
+            {{ this.name }} - <a href="{{ this.link }}" target="_blank">Buy Here</a>
+        </li>
+         {{/each}}
+</ul>
+
         </div>
-
 
         <!-- Interactive Slogans Section -->
         <div class="slogans">
@@ -72,9 +65,8 @@
 
         <!-- Button to redirect to the Upload Page -->
         <div class="button-container">
-    <button class="upload-again-btn" onclick="location.href='/upload'">Upload Another Image</button>
-</div>
-
+            <button class="upload-again-btn" onclick="location.href='/upload'">Upload Another Image</button>
+        </div>
     </div>
 
     <script src="result1.js"></script>

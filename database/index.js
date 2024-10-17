@@ -1,6 +1,7 @@
 import express from "express";
 import connectDB from "./db.js"; // Ensure the path is correct
 import Disease from "./models/disease.js"; // Ensure the path is correct
+import Pesticide from "./models/pesticide.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -24,6 +25,16 @@ app.post('/diseases', async (req, res) => {
         const disease = new Disease(req.body);
         await disease.save();
         res.status(201).send(disease);
+    } catch (error) {
+        res.status(400).send(error);
+    }
+});
+
+app.post('/pesticides', async (req, res) => {
+    try {
+        const pesticide = new Pesticide(req.body);
+        await pesticide.save();
+        res.status(201).send(pesticide);
     } catch (error) {
         res.status(400).send(error);
     }

@@ -4,12 +4,12 @@ import mongoose from "mongoose";
 const pesticideSchema = new mongoose.Schema({
 
     name: { type: String, required: true },
-    name: { type: String, required: true },
-    image: { type: String, required: true },    // URL or base64 string of the image
-    price: { type: Number, required: true },    // Price of the pesticide
-    description: { type: String, required: true },  // Brief description of the pesticide
-    rating: { type: Number, min: 0, max: 5 },   // Rating of the pesticide (optional)
-    link: { type: String, required: true }      // URL to the e-commerce site
+    pesticide1: { type: String, required: true },
+    link1: { type: String, required: true } ,     
+    pesticide2: { type: String, required: true },
+    link2: { type: String, required: true } ,
+    pesticide3: { type: String, required: true },
+    link3: { type: String, required: true } ,
 });
 
 // Create Model from Pesticide Schema

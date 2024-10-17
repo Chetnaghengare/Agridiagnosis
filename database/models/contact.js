@@ -33,6 +33,6 @@ const contactSchema = new mongoose.Schema({
 });
 
 // Create a model from the schema
-const Contact = mongoose.model('Contact', contactSchema);
+const Contact = mongoose.models.Contact || mongoose.model('Contact', contactSchema);
 
 export default Contact;

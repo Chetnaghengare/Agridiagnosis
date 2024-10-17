@@ -8,6 +8,8 @@ import FormData from 'form-data';
 import Disease from './database/models/disease.js'; // Import the Disease model
 // import User from './database/models/signup.js'//import the user signup model.
 import User from './database/models/signup.js';
+import Contact from './database/models/contact.js'; // Import the Contact model
+import Pesticide from './database/models/pesticide.js'; // Import the Pesticide model
 
 import './database/index.js';  // Ensure that this file handles the database connection
 
@@ -60,7 +62,12 @@ app.get('/upload', (req, res) => {
 
 app.post('/predict', upload.single('file'), async (req, res) => {
     if (!req.file) {
-        return res.render('result', { prediction: "No file uploaded", description: [], treatment: [] });
+        return res.render('result', { 
+            prediction: "No file uploaded", 
+            description: [], 
+            treatment: [], 
+            pesticides: [] 
+        });
     }
 
     const formData = new FormData();
@@ -74,6 +81,8 @@ app.post('/predict', upload.single('file'), async (req, res) => {
                 ...formData.getHeaders()
             }
         });
+
+        console.log("Flask Response:", response.data); // Log the entire response
         const predictedDisease = response.data.prediction;
 
         console.log("Predicted Disease:", predictedDisease);
@@ -82,27 +91,40 @@ app.post('/predict', upload.single('file'), async (req, res) => {
         const diseaseInfo = await Disease.findOne({ name: predictedDisease });
         console.log("Disease Info from DB:", diseaseInfo);
 
+        const pesticideInfo = await Pesticide.findOne({ name: predictedDisease });
+        console.log("Pesticides Info from DB:", pesticideInfo);
+
         // Check if the disease information exists
-        if (!diseaseInfo) {
-            return res.render('result1', { 
-                prediction: predictedDisease,
-                description: ["No description available."], 
-                treatment: ["No treatment available."]
-            });
-        }
+        // if (!diseaseInfo) {
+        //     return res.render('result', { 
+        //         prediction: predictedDisease,
+        //         description: ["No description available."], 
+        //         treatment: ["No treatment available."],
+        //         pesticides: [] // Ensure pesticides is an empty array
+        //     });
+        // }
+
+        // Prepare pesticides data to send to the view
+        const pesticides = pesticideInfo ? [
+            { name: pesticideInfo.pesticide1, link: pesticideInfo.link1 },
+            { name: pesticideInfo.pesticide2, link: pesticideInfo.link2 },
+            { name: pesticideInfo.pesticide3, link: pesticideInfo.link3 }
+        ] : []; // Ensure this is an empty array if pesticideInfo is undefined
 
         // Render result with the prediction and disease info
-        res.render('result1', { 
+        res.render('result', { 
             prediction: predictedDisease,
-            description: diseaseInfo.description, // Pass as an array
-            treatment: diseaseInfo.treatment // Pass as an array
+            description: diseaseInfo.description || ["No description available."], // Fallback if not available
+            treatment: diseaseInfo.treatment || ["No treatment available."], // Fallback if not available
+            pesticides: pesticides // Pass pesticide info
         });
 
     } catch (error) {
         console.error("Error occurred while sending image to Flask:", error.message);
-        res.render('result', { prediction: "Error while predicting the disease.", description: [], treatment: [] });
+        res.render('result', { prediction: "Error while predicting the disease.", description: [], treatment: [], pesticides: [] });
     }
 });
+
 
 app.post('/signup', async (req, res) => {
     try {
@@ -143,7 +165,6 @@ else{
 
 app.post('/contact', async (req, res) => {
     try {
-        // Create a new contact using the Contact model
         const newContact = new Contact({
             name: req.body.name,
             email: req.body.email,
@@ -157,10 +178,11 @@ app.post('/contact', async (req, res) => {
         // Redirect or render a success message/page after submission
         res.render('contact', { successMessage: "Your message has been sent successfully!" });
     } catch (error) {
-        console.error("Error saving contact information:", error.message);
+        console.error("Error saving contact information:", error); // Log the complete error object
         res.render('contact', { errorMessage: "An error occurred while sending your message. Please try again." });
     }
 });
+
 
 // Start the server on port 3000
 const PORT = process.env.PORT || 3000;
