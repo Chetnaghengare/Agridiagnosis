@@ -1,7 +1,7 @@
 # Agridiagnosis Project
 
 ## Overview
-Agridiagnosis is a web-based application designed to assist farmers in diagnosing plant diseases and providing solutions through pest control recommendations. By leveraging machine learning and web scraping, the application helps users identify diseases, predict crop health, and recommend appropriate pesticides.
+Agridiagnosis is a web-based application designed to assist farmers in diagnosing plant diseases and providing solutions through pest control recommendations. By leveraging machine learning, the application helps users identify diseases, predict crop health, and recommend appropriate pesticides.
 
 ## Features
 - **Disease Detection**: Identify plant diseases through image uploads.
