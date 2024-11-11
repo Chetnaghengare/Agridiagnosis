@@ -33,7 +33,7 @@ def predict():
         image = img_to_array(image)
         image = np.expand_dims(image, axis=0)  # Add batch dimension
         image = image / 255.0  # Normalize the image
-
+  
         # Get model predictions
         prediction = model.predict(image)
         predicted_class_index = np.argmax(prediction, axis=1)[0]

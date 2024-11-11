@@ -7,7 +7,7 @@ dotenv.config(); // Load environment variables at the very top
 
 const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb://localhost:27017/Agridiagnosis", {
+        await mongoose.connect("mongodb+srv://chetnaghengare:Chetna%4007@cluster0.i5xsk.mongodb.net/Agridiagnosis?retryWrites=true&w=majority&appName=Cluster0", {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
