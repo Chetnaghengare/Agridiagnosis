@@ -1,3 +1,4 @@
 /node_modules
 /class_indices.json
 /plant_disease_prediction_model.h5
+/package-lock.json
